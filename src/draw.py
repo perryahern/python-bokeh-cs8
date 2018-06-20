@@ -2,7 +2,7 @@ import math
 
 from bokeh.io import show, output_file
 from bokeh.plotting import figure
-from bokeh.models import GraphRenderer, StaticLayoutProvider, Oval, ColumnDataSource, Range1d, LabelSet, Label
+from bokeh.models import GraphRenderer, StaticLayoutProvider, Oval, ColumnDataSource, LabelSet, Label
 from bokeh.palettes import Spectral8
 
 from graph import *
@@ -28,9 +28,6 @@ graph.node_renderer.glyph = Oval(height=30, width=38, fill_color='color')
 
 # this is drawing the edges from start to end
 graph.edge_renderer.data_source.data = dict(start=[], end=[])
-    # start=[i for i, vertex in enumerate(graph_data.vertexes)],  # this is why all edges start from first vertex, a list that has to do with starting points
-    # end=[edge for vertex in graph_data.vertexes.edges) # a list of some kind that has to do with ending points
-    # end=[1, 2, 3, 4]) # a list of some kind that has to do with ending points
 
 for vertex in graph_data.vertexes:
   if len(vertex.edges) > 0:
@@ -42,10 +39,7 @@ for vertex in graph_data.vertexes:
       graph.edge_renderer.data_source.data['end'].append(end)
 
 
-print(graph.edge_renderer.data_source.data)
-
 ### start of layout code
-# looks like this is setting positions of the vertexes
 circ = [i*2*math.pi/N for i in node_indices]
 x = [v.pos['x'] for v in graph_data.vertexes]
 y = [v.pos['y'] for v in graph_data.vertexes]

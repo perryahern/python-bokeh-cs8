@@ -22,8 +22,6 @@ class Graph:
     debug_vertex_6 = Vertex('t6', x=350, y=275)
     debug_vertex_7 = Vertex('t6', x=350, y=400)
 
-    # print(debug_vertex_1.pos['x'])
-
     debug_edge_1 = Edge(debug_vertex_2)
     debug_vertex_1.edges.append(debug_edge_1)
 

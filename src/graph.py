@@ -30,6 +30,7 @@ class Graph:
 
     debug_edge_3 = Edge(debug_vertex_4)
     debug_vertex_3.edges.append(debug_edge_3)
+    debug_vertex_2.edges.append(debug_edge_3)
 
     debug_edge_4 = Edge(debug_vertex_5)
     debug_vertex_4.edges.append(debug_edge_4)

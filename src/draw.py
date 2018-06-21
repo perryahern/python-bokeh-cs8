@@ -8,7 +8,7 @@ from bokeh.palettes import Spectral8
 from graph import *
 
 graph_data = Graph()
-graph_data.debug_create_test_data()
+graph_data.create_test_data()
 
 N = len(graph_data.vertexes)
 node_indices = list(range(N))
@@ -43,13 +43,12 @@ for vertex in graph_data.vertexes:
 circ = [i*2*math.pi/N for i in node_indices]
 x = [v.pos['x'] for v in graph_data.vertexes]
 y = [v.pos['y'] for v in graph_data.vertexes]
+names = [v.value for v in graph_data.vertexes]
 
-source = ColumnDataSource(data=dict(x_pos=x,
-                                    y_pos=y,
-                                    names=['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7']))
+source = ColumnDataSource(data=dict(x_pos=x, y_pos=y, names=names))
 
 labels = LabelSet(x='x_pos', y='y_pos', text='names', level='glyph',
-              x_offset=-10, y_offset=-10, source=source, render_mode='canvas')
+                  x_offset=-10, y_offset=-10, source=source, render_mode='canvas')
 
 
 graph_layout = dict(zip(node_indices, zip(x, y)))

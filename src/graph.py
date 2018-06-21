@@ -20,7 +20,7 @@ class Graph:
     vertex_4 = Vertex('V4', 'yellow', x=150, y=300)
     vertex_5 = Vertex('V5', 'purple', x=250, y=350)
     vertex_6 = Vertex('V6', 'cyan', x=350, y=275)
-    vertex_7 = Vertex('V6', 'teal', x=350, y=400)
+    vertex_7 = Vertex('V7', 'teal', x=350, y=400)
 
     vertex_1.edges.append(Edge(vertex_2))
 
